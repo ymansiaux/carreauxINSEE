@@ -1,0 +1,6 @@
+^renv$
+^renv\.lock$
+^carreauxINSEE\.Rproj$
+^\.Rproj\.user$
+^dev_history\.R$
+^LICENSE\.md$
