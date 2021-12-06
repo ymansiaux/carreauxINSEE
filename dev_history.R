@@ -1,29 +1,21 @@
 usethis::use_build_ignore(files = "dev_history.R")
+usethis::use_build_ignore("renv_setup.R")
+
 usethis::use_gpl3_license()
 
-usethis::use_vignette("xtradataZZZ")
+renv::init()
+usethis::use_git_ignore(ignores = "./renv/library", directory = ".")
+usethis::use_git_ignore(ignores = "./renv/local", directory = ".")
 
 usethis::use_pipe()
 
-usethis::use_package("httr")
-usethis::use_package("assertthat")
-usethis::use_package("glue")
-usethis::use_package("purrr")
-usethis::use_package("jsonlite")
-usethis::use_package("curl")
+usethis::use_data_raw("fichiers_geo_carreaux_BM")
 
 
-
-usethis::use_testthat()
-
-usethis::use_test(name = "check_internet")
-usethis::use_test(name = "check_API_results")
-usethis::use_test(name = "xtradata_requete_features")
-usethis::use_test(name = "xtradata_requete_aggregate")
-usethis::use_test(name = "get_latitude_longitude")
+attachment::att_amend_desc()
 
 #
-vignettes <- TRUE
+vignettes <- FALSE
 devtools::check()
 devtools::build(vignettes = vignettes)
 devtools::install(build_vignettes = vignettes)
